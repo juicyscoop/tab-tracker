@@ -11,12 +11,18 @@ app.use(morgan('combined'))
 app.use(bodyParser.json())
 app.use(cors())
 
-app.get('/status', (req, res) => {
+app.post('/register', (req, res) => {
     res.send({
-        message:'hello wrold'
+        message: `Hello ${req.body.password} your user was registered`
     })
-})
+}
+)
 
-app.listen(process.env.PORT || 8081)
+// app.get('/register', (req, res) => {
+//     res.render('Register.vue');
+// }
+// )
+
+app.listen(process.env.PORT || 8081);
 
 
