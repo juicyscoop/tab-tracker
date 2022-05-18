@@ -1,24 +1,30 @@
 {
   "name": "client",
   "version": "1.0.0",
+  "private": true,
   "description": "A Vue.js project",
   "author": "Oskar Marelja <oskarmarelja@gmail.com>",
-  "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
-    "start": "npm run dev",
-    "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
-    "e2e": "node test/e2e/runner.js",
-    "test": "npm run unit && npm run e2e",
+    "build": "node build/build.js",
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",
-    "build": "node build/build.js"
+    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "e2e": "node test/e2e/runner.js",
+    "start": "npm run dev",
+    "test": "npm run unit && npm run e2e",
+    "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run"
   },
   "dependencies": {
     "axios": "^0.27.2",
+    "passport": "^0.5.3",
     "vue": "^2.5.2",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.5.4",
+    "vuetify": "^2.6.6",
+    "vuex": "^3.6.2",
+    "vuex-persistedstate": "^4.1.0",
+    "vuex-router-sync": "^5.0.0"
   },
   "devDependencies": {
+    "@vue/cli-plugin-vuex": "~5.0.0",
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.22.1",
     "babel-eslint": "^8.2.1",
@@ -87,13 +93,13 @@
     "webpack-dev-server": "^2.9.1",
     "webpack-merge": "^4.1.0"
   },
-  "engines": {
-    "node": ">= 6.0.0",
-    "npm": ">= 3.0.0"
-  },
   "browserslist": [
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "engines": {
+    "node": ">= 6.0.0",
+    "npm": ">= 3.0.0"
+  }
 }
